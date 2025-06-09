@@ -20,7 +20,16 @@ module.exports = {
       boxShadow:{
         'soft':'0px 0px 4px 0px #0000001A',
         'card':'0px 4px 4px 0px #00000026'
-      }
+      },
+        animation: {
+    progress: 'progressBar 1s linear forwards',
+  },
+  keyframes: {
+    progressBar: {
+      '0%': { width: '0%' },
+      '100%': { width: '100%' },
+    },
+  },
     },
   },
   plugins: [],
