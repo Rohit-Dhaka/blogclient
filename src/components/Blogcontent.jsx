@@ -58,7 +58,7 @@ const Blogcontent = () => {
           </div>
         </div>
 
-        {/* Comments Section */}
+        
         <div className="max-w-[512px] ">
           <h6 className="font-outfit text-black font-semibold pb-4">
             Comments {comments.length}
@@ -67,9 +67,7 @@ const Blogcontent = () => {
           {comments.map((com, i) => (
             <div className="bg-[#5044e505] p-4 rounded-lg mb-2" key={i}>
               <div className="flex gap-2">
-                {/* <div className="w-6 h-6  rounded-full">
-                    <img src={com.user.profile} alt="img" />                                    
-                </div> */}
+              
                 {com.user?.profile ? (
                   <img
                     src={com.user.profile}
@@ -90,7 +88,7 @@ const Blogcontent = () => {
           ))}
         </div>
 
-        {/* Add Comment */}
+        
         <div className="max-w-[512px] mt-6 pb-32">
           <h4 className="font-outfit font-semibold text-black pb-4">
             Add Your Comment

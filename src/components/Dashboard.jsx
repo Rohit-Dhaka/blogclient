@@ -84,8 +84,8 @@ const Dashboard = () => {
                   <td className=" font-outfit text-[#696B80] py-[18px] px-[12px] text-center">{index + 1}</td>
                   <td  className=" font-outfit text-[#696B80] ">{blog.title}</td>
                   <td  className=" font-outfit text-[#696B80] ">{formattedDate}</td>
-                  <td  className={`  ${blog.status === 'public' ? 'text-green-500' :'text-red-500'}  font-outfit text-[#00A63E] capitalize `}>{blog.status}</td> {/* Or blog.status if it exists */}
-                   <td  className={`  ${blog.status === 'public' ? 'text-green-500' :'text-red-500'}  font-outfit text-[#00A63E] capitalize `}>{blog.status}</td> {/* Add edit/delete buttons later if needed */}
+                  <td  className={`  ${blog.status === 'public' ? 'text-green-500' :'text-red-500'}  font-outfit text-[#00A63E] capitalize `}>{blog.status}</td> 
+                   <td  className={`  ${blog.status === 'public' ? 'text-green-500' :'text-red-500'}  font-outfit text-[#00A63E] capitalize `}>{blog.status}</td> 
                 </tr>
               );
             })}

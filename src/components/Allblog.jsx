@@ -6,8 +6,6 @@ const Allblog = () => {
   const { allblogs, blogs } = Mycontext();
   const { category } = useParams();
 
-  console.log("hi", blogs.length);
-
   const [visibleBlogs, setVisibleBlogs] = useState(8);
 
   const showmoreBlogs = () => {

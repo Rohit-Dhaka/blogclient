@@ -1,15 +1,35 @@
 import axios from "axios";
 import api from '../api/axiosConfig';  // Use axios instance
+import { jwtDecode } from "jwt-decode";
 
 
-const { createContext, useContext, useState } = require("react");
+const { createContext, useContext, useState, useEffect } = require("react");
 
 const Context = createContext(null);
+
 
 export const ContextProvider = ({ children }) => {
   const [blogs, setBlogs] = useState([]);
    const [comments, setComments] = useState([]);
    const [ user , setUser] = useState([]);
+    
+  const [role, setRole] = useState(null);
+const [loading, setLoading] = useState(true); // ✅ Add this
+
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    try {
+      const decoded = jwtDecode(token);
+      setRole(decoded.role);
+    } catch {
+      console.error("Bad token");
+    }
+  }
+  setLoading(false); // ✅ Tell app that role loading is done
+}, []);
+
+  
 
   const signup = async (formdata) => {
     try {
@@ -29,12 +49,15 @@ export const ContextProvider = ({ children }) => {
   };
   const login = async (formdata) => {
     try {
-      const response = await api.post(
-        "/auth/login",
-        formdata
-      );      
-      localStorage.setItem("token", response.data.token);            
+      const response = await api.post("/auth/login",formdata);      
+      localStorage.setItem("token", response.data.token);
+       
+        const decoded = jwtDecode(response.data.token);
+    setRole(decoded.role);
+
       return{success:true , message: response.data.message}
+
+      
 
       
     } catch (error) {
@@ -126,8 +149,15 @@ const addcomments = async (id, commentData) => {
 };
 
 
+
+const logout = () => {
+  localStorage.removeItem("token");
+  setRole(null);
+};
+
+
   return (
-    <Context.Provider value={{ signup, login, addblog, allblogs, blogs ,comments, getComments ,addcomments  ,user   ,getuser}}>
+    <Context.Provider value={{ signup, login, addblog, allblogs, blogs ,comments, getComments ,addcomments  ,user ,logout  ,getuser ,role, setRole, loading }}>
       {children}
     </Context.Provider>
   );

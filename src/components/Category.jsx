@@ -11,11 +11,11 @@ const Category = () => {
     allblogs();
   }, []);
 
-  console.log("category" ,category)    
+  
   const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();  
   const filteredBlogs = blogs.filter(blog => blog.category === capitalize(category));
 
-  console.log("filteredBlogs" ,filteredBlogs )
+  
   
 
   

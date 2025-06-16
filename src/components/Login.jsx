@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
 
 
-   const [role, setRole]   = useState(null);   // null = loading
+   const [role, setRole]   = useState(null);  
     
   
    
@@ -21,9 +21,9 @@ const Login = () => {
       if (token) {
         try {
           const decoded = jwtDecode(token);
-          setRole(decoded.role);               // "admin" | "user"
+          setRole(decoded.role);              
         } catch {
-          console.error("Bad token");          // stay null → treat as guest
+          console.error("Bad token");          
         }
       }
       
@@ -45,29 +45,58 @@ const Login = () => {
         setShowBar(false);
       }, 1500);
 
-      return; // ⛔ Prevent login and navigation
+      return; 
     }
 
     const res = await login(formdata);
     setMessage(res.message);
 
     // Optional: only navigate if login is successful
-    if (res.success) {
-      setShowBar(true);
+    // if (res.success) {
+    //   setShowBar(true);
       
-      setTimeout(() => {
-        setMessage("");
-        setShowBar(false);
-        if(role === 'admin'){
+    //   setTimeout(() => {
+    //     setMessage("");
+    //     setShowBar(false);
+    //     if(role === 'admin'){
 
-          navigate("/", { state: { message: res.message } });
-        }else{
+    //       navigate("/addblogs", { state: { message: res.message } });
+    //     }else{
+    //       navigate("/all", { state: { message: res.message } });
+
+    //     }      
+    //     setFormdata({ email: "", password: "" });
+    //   }, 1000);
+    // } 
+    if (res.success) {
+  setShowBar(true);
+
+  setTimeout(() => {
+    setMessage("");
+    setShowBar(false);
+
+    // decode token after login
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        const userRole = decoded.role;
+
+        if (userRole === "admin") {
+          navigate("/dashboard", { state: { message: res.message } });
+        } else {
           navigate("/all", { state: { message: res.message } });
+        }
+      } catch (err) {
+        console.error("Invalid token");
+      }
+    }
 
-        }      
-        setFormdata({ email: "", password: "" });
-      }, 1000);
-    } else {
+    setFormdata({ email: "", password: "" });
+  }, 1000);
+}
+
+    else {
       // Show error and don't navigate
       setShowBar(true);
       setTimeout(() => {

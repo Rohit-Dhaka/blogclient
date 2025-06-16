@@ -65,7 +65,7 @@ const Bloglistadmin = () => {
                   >
                     {blog.status}
                   </td>{" "}
-                  {/* Or blog.status if it exists */}
+                  
                   <td className=" font-outfit text-[#696B80] ">
                     <button
                       onClick={() =>
@@ -81,7 +81,7 @@ const Bloglistadmin = () => {
                       {blog.status === "public" ? "Unpublish" : "Publish"}
                     </button>
                   </td>{" "}
-                  {/* Add edit/delete buttons later if needed */}
+                  
                 </tr>
               );
             })}
