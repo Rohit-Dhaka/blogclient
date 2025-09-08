@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Mycontext } from "../context/context";
-import { Back } from "../common/icon";
+import { Mycontext } from "../../context/context";
+import { Back } from "../../common/icon";
 
 const Signup = () => {
   const { signup } = Mycontext();
@@ -25,11 +25,7 @@ const Signup = () => {
     setMessage(res.message)
     setShowBar(true);
      
-    
-
-    
-    
-    
+                
     setTimeout(() => {
       setMessage("");
       setShowBar(false);
@@ -40,10 +36,7 @@ const Signup = () => {
 
   return (
     <section className="min-h-screen  flex  items-center relative">
-       <div className=" absolute sm:top-12 top-4    sm:left-32 left-6">
-              <Link to='/'><Back/></Link>
-              
-            </div>
+      
        {message && (
         <div className="shadow-lg rounded-md py-2 px-4 absolute top-[4%] translate-x-[-50%] left-[50%] bg-white text-center text-black font-medium z-50 w-[300px]">
           <p>{message}</p>

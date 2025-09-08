@@ -1,43 +1,25 @@
-import { Navigate, Route, Routes  } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
-import { useState, useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 
-
-import Navbar from "./components/Navbar";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
-import AdminBoard from "./components/AdminBoard";
-import Addblogs from "./components/Addblogs";
-
-import Comments from "./components/Comments";
-import Dashboard from "./components/Dashboard";
+import Navbar from "./components/layout/Navbar";
+import Signup from "./components/Auth/Signup";
+import AdminBoard from "./components/admin/AdminBoard";
+import Addblogs from "./components/admin/Addblogs";
+import Comments from "./components/common/Comments";
+import Dashboard from "./components/admin/Dashboard";
 import HomePage from "./pages/HomePage";
-import Allblog from "./components/Allblog";
-import Bloglistadmin from "./components/Bloglistadmin";
-import Blogcontent from "./components/Blogcontent";
-import Category from "./components/Category";
+import Allblog from "./components/blogs/Allblog";
+import Bloglistadmin from "./components/admin/Bloglistadmin";
+import Blogcontent from "./components/blogs/Blogcontent";
+import Category from "./components/blogs/Category";
 import BlogContentPage from "./pages/BlogContentPage";
 import { Mycontext } from "./context/context";
+import Login from "./components/Auth/Login";
 
 function App() {
-  
-
   const { role, loading } = Mycontext();
-
-  console.log("role", role);
-  
-
   if (loading) return null;
-
-
-  
-
-  
-
   return (
     <>
-      
-
       {role === "admin" && (
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -56,15 +38,12 @@ function App() {
         </Routes>
       )}
 
-      
       {role === "user" && (
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-
           <Route element={<Navbar />}>
             <Route path="/" element={<HomePage />}>
-              
               <Route path=":category" element={<Category />} />
               <Route path="all" element={<Allblog />} />
               <Route index element={<Navigate to="all" replace />} />
@@ -74,7 +53,6 @@ function App() {
         </Routes>
       )}
 
-      
       {role !== "admin" && role !== "user" && (
         <Routes>
           <Route element={<Navbar />}>

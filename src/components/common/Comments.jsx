@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Delete, Done } from "../common/icon";
-import { Mycontext } from "../context/context";
+import { Delete, Done } from "../../common/icon";
+import { Mycontext } from "../../context/context";
 
 const Comments = () => {
   const { allblogs, blogs, comments, getComments } = Mycontext();

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Mycontext } from "../context/context";
+import { Mycontext } from "../../context/context";
 import { useParams } from "react-router-dom";
 
 const Blogcontent = () => {

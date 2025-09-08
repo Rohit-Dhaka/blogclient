@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { Addblogs, Blogslist, Comments, Dashboard } from "../common/icon";
+import { Addblogs, Blogslist, Comments, Dashboard } from "../../common/icon";
 
 const AdminBoard = () => {
   return (
@@ -45,8 +45,7 @@ const AdminBoard = () => {
           >
             {" "}
             <Blogslist /> Blogs list
-          </NavLink>
-          {/* <NavLink className={({isActive}) => `${isActive  ? 'bg-[#F2F3FF] sm:border-r-[6px]  max-sm:border-b-[2px] border-solid border-[#5F6FFF] text-[#000]' : ''} flex gap-2 py-4  text-[#515151]  sm:ps-10 max-sm:px-8 text-nowrap   duration-300   ease-linear `} to='comments'> <Comments/>  Comments</NavLink> */}
+          </NavLink>        
         </aside>
         <div className="border-t-[1px] border-solid border-[#D8D8D8] w-full bg-[#F6FAFE] sm:pt-[45px] pt-8 sm:ps-[45px] max-sm:pb-40">
           <Outlet />

@@ -4,8 +4,8 @@ import {
   Commentsnumber,
   Draftsnumber,
   Latestblog,
-} from "../common/icon";
-import { Mycontext } from "../context/context";
+} from "../../common/icon";
+import { Mycontext } from "../../context/context";
 
 const Dashboard = () => {
   const { allblogs, blogs } = Mycontext();

@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import { Mycontext } from "../context/context";
-import api from '../api/axiosConfig';
+import { Mycontext } from "../../context/context";
+import api from "../../utils/api";
+
 
 const Bloglistadmin = () => {
   const { allblogs, blogs } = Mycontext();
 
   const updateStatus = async (id, newStatus) => {
-    try {
+    try {      
       await api.put(`/blog/updateblogs/${id}`, {
         status: newStatus,
-      });
-      // refresh blogs or notify
+      });      
     } catch (err) {
       console.error(err);
     }

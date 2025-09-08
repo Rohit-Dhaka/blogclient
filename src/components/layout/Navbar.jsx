@@ -1,29 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import Logo from "../assets/svg/logo.svg";
-import Arrow from "../assets/svg/arrow.svg";
-import { Logout } from "../common/icon";
-import { Mycontext } from "../context/context";
+import Logo from "../../assets/svg/logo.svg";
+import Arrow from "../../assets/svg/arrow.svg";
+import { Logout } from "../../common/icon";
+import { Mycontext } from "../../context/context";
 
 const Navbar = () => {
   const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
    const { logout, role } = Mycontext();
 
-
-  // ✅ Check login token on mount
+  
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) setIsLogin(true);
   }, []);
 
   const handleLogout = () => {
-    // localStorage.removeItem("token");
-    // setIsLogin(false);
-    // navigate("/login");
-
-      logout();
-    // optionally redirect to login
+    logout();    
     window.location.href = "/login"; 
   };
 

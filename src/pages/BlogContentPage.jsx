@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from '../components/Footer'
-import Blogcontent from '../components/Blogcontent'
+import Footer from '../components/layout/Footer'
+import Blogcontent from '../components/blogs/Blogcontent'
 
 const BlogContentPage = () => {
   return (

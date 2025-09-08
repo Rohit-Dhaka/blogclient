@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, Outlet, useParams } from "react-router-dom";
-import { Mycontext } from "../context/context";
+import { Mycontext } from "../../context/context";
 
 const Category = () => {
   const { allblogs, blogs } = Mycontext();

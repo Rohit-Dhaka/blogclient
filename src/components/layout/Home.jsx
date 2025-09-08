@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import Start from '../assets/svg/star_icon.svg';
-import Gradient from '../assets/webp/gradientBackground.png';
-import api from '../api/axiosConfig';  // Use axios instance
+
+import Start from '../../assets/svg/star_icon.svg';
+import Gradient from '../../assets/webp/gradientBackground.png';
+import api from '../../utils/api'; 
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,9 +23,7 @@ const Home = () => {
     try {
       const response = await api.get(
         `/blog/searchblog?search=${encodeURIComponent(searchTerm)}`
-      );
-
-      // Check if response.data.blogs exists and is an array
+      );      
       const blogsData = response.data.blogs || [];
 
       if (blogsData.length === 0) {

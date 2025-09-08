@@ -1,9 +1,9 @@
 import React from 'react'
-import Footer from '../components/Footer'
-import Subscribe from '../components/Subscribe'
-import Blogslist from '../components/Blogslist'
-import Home from '../components/Home'
-import Navbar from '../components/Navbar'
+import Footer from '../components/layout/Footer'
+import Subscribe from '../components/layout/Subscribe'
+import Blogslist from '../components/blogs/Blogslist'
+import Home from '../components/layout/Home'
+import Navbar from '../components/layout/Navbar'
 
 const HomePage = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Mycontext } from "../context/context";
-import { Uploadimg } from "../common/icon";
+import { Mycontext } from "../../context/context";
+import { Uploadimg } from "../../common/icon";
 
 const Addblogs = () => {
   const { addblog } = Mycontext();

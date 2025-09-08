@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Needed for navigation
-import api from '../api/axiosConfig';  // Use axios instance
+import { useNavigate } from "react-router-dom"; 
+import api from '../../utils/api'; 
 
 const Subscribe = () => {
   const [email, setEmail] = useState("");

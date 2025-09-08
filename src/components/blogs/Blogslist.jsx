@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { Mycontext } from "../context/context";
+import { Mycontext } from "../../context/context";
 
 const Blogslist = () => {
   const { allblogs, blogs } = Mycontext();
